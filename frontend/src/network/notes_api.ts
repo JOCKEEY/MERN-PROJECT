@@ -2,7 +2,7 @@ import { Note } from "../models/note";
 import { User } from "../models/users";
 
 async function fetchData(input: RequestInfo, init?: RequestInit){
-    const response = await  fetch(input, init);
+    const response = await fetch(input, init);
     console.log(response," response 123")
     if(response.ok){
         return response;
@@ -16,7 +16,6 @@ async function fetchData(input: RequestInfo, init?: RequestInit){
 
 export async function getLoggedInUser(): Promise<User> {
     const response = await fetchData("/api/users", {method: "GET"});
-    console.log(response.json(), "response 123");
     return response.json();
 }
 

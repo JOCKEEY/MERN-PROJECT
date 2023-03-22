@@ -7,9 +7,9 @@ import { assertIsDefined } from "../util/assertIsDefined";
 
 export const getNotes: RequestHandler = async (req, res, next) => {
     const authenticatedUserId = req.session.userId;
+    
     try {
         assertIsDefined(authenticatedUserId);
-
         const notes = await NoteModel.find({userId: authenticatedUserId}).exec();
         res.status(200).json(notes);
     } catch (error) {

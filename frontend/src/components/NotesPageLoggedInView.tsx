@@ -4,9 +4,9 @@ import { FaPlus } from "react-icons/fa";
 import { Note as NoteModel } from '../models/note';
 import * as NoteApi from "../network/notes_api";
 import styles from "../styles/NotesPage.module.css";
+import stylesUtils from "../styles/utils.module.css";
 import AddEditNoteDialog from "./AddEditNoteDialog";
 import Note from "./Notes";
-import stylesUtils from "../styles/utils.module.css";
 
 const NotePageLoggedInView = () => {
     const [notes, setNotes] = useState<NoteModel[]>([]);
@@ -43,18 +43,19 @@ const NotePageLoggedInView = () => {
 			alert(error);
 		}
 	}
-	const notesGrid = <Row xs={1} md={2} xl={3} className={`g-4 ${styles.notesGrid}`}>
-		{notes.map(note => (
-			<Col key={note._id}>
-				<Note
-					note={note}
-					className={styles.note}
-					onNoteClicked={setNoteToEdit}
-					onDeleteNoteClicked={deleteNote}
-				/>
-			</Col>
-		))}
-	</Row>
+	const notesGrid = 
+        <Row xs={1} md={2} xl={3} className={`g-4 ${styles.notesGrid}`}>
+            {notes.map(note => (
+                <Col key={note._id}>
+                    <Note
+                        note={note}
+                        className={styles.note}
+                        onNoteClicked={setNoteToEdit}
+                        onDeleteNoteClicked={deleteNote}
+                    />
+                </Col>
+            ))}
+        </Row>
 
     return (
         <>

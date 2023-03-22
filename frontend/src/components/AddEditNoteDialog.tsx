@@ -68,7 +68,8 @@ const AddEditNoteDialog = ( {noteToEdit ,onDismiss ,onNoteSaved} : AddEditNoteDi
                 <Button 
                     type = "submit"
                     form ="addEditNoteForm"
-                    disabled={isSubmitting}>
+                    disabled={isSubmitting}
+                >
                     Save
                 </Button>
             </Modal.Footer>
